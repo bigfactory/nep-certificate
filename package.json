@@ -1,0 +1,23 @@
+{
+  "name": "nep-certificate",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --require should --reporter List --check-leaks test/"
+  },
+  "devDependencies": {
+    "mocha": "^2.1.0",
+    "should": "^5.0.0"
+  },
+  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bigfactory/nep-certificate.git"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "async": "^1.4.0",
+    "mkdirp": "^0.5.1"
+  }
+}
