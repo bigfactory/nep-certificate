@@ -1,12 +1,11 @@
 @echo off
 
-openssl genrsa -out CA.key 2048
-openssl req -x509 -new -nodes -key CA.key -days 3650 -out CA.crt -subj "/C=CN/ST=SH/L=SH/O=Nep/OU=Section/CN=Nep SSL Proxy/emailAddress=Nep@Nep"
+openssl genrsa -out rootCA.key 2048
+openssl req -x509 -new -nodes -key rootCA.key -days 3650 -out rootCA.crt -subj "/C=CN/ST=Guangdong/L=Shenzhen/O=Nep/OU=Section/CN=Nep CA/emailAddress=xiaocong.hxc@alibaba-inc.com"
 echo =============
-echo CA generated at :
+echo rootCA generated at :
 echo %cd%
 echo =============
 
-start .
 
 rem exit 0

@@ -7,11 +7,11 @@ commonname=$domain
  
 #Change to your company details
 country=ZH
-state=Shanghai
-locality=Shanghai
-organization=a.com
+state=Guangdong
+locality=Shenzhen
+organization=alibaba.com
 organizationalunit=IT
-email=a@b.com
+email=xiaocong.hxc@alibaba-inc.com
  
 #Optional
 password=a
@@ -20,7 +20,7 @@ if [ -z "$domain" ]
 then
     echo "Argument not present."
     echo "Useage $0 [domain] [outputPath]"
- 	
+    
     exit 99
 fi
  
@@ -42,7 +42,7 @@ openssl req -new -key $outputPath$domain.key -out $outputPath$domain.csr -passin
     -subj "/C=$country/ST=$state/L=$locality/O=$organization/OU=$organizationalunit/CN=$commonname/emailAddress=$email"
  
 #Generating a Self-Signed Certificate
-openssl x509 -req -days 365 -in $outputPath$domain.csr -CA CA.crt -CAkey CA.key -CAcreateserial -out $outputPath$domain.crt
+openssl x509 -req -days 365 -in $outputPath$domain.csr -CA rootCA.crt -CAkey rootCA.key -CAcreateserial -out $outputPath$domain.crt
 # -signkey $outputPath$domain.key
-#openssl x509 -req -in host.csr -CA CA.crt -CAkey CA.key -CAcreateserial -out host.crt -days 365
+#openssl x509 -req -in host.csr -CA rootCA.crt -CAkey rootCA.key -CAcreateserial -out host.crt -days 365
 echo "Finished"

@@ -58,12 +58,12 @@ exports.sni = function(hostname, SNICallback){
 
     async.series([
         function(next){
-            exports.get(hostname, function(err, key, cert){
+            exports.get(hostname, function(err, _key, _cert){
                 if(err){
                     next(err);
                 }else{
-                    key = key;
-                    cert = cert;
+                    key = _key;
+                    cert = _cert;
                     next();
                 }
             });
